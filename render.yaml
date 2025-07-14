@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: CHARLESKE-XMD
+    env: node # Change to "python" or your environment if not Node.js
+    plan: free
+    buildCommand: npm install # Change to your build command if different
+    startCommand: npm start   # Change to your start command if different
+    envVars:
+      - key: SESSION-ID
+        sync: false
+      - key: OWNER
+        sync: false
+      - key: OWNER-NUMBER
+        sync: false
