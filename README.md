@@ -32,6 +32,13 @@ Support the project by giving a ⭐ and forking the repo.
 [![Fork Repo](https://img.shields.io/badge/Github-Fork%20Repo-orange?style=for-the-badge&logo=Github)](https://github.com/charlesxmd/CHARLES-XMD/fork)
 
 ---
+PAIR CODE 
+
+<p align="left">
+  <a href="https://charle-ke.onrender.com">
+    <img title="PAIR CODE" src="https://img.shields.io/badge/GET SESSION-neonred?style=for-the-badge&logo=charleske" width="220" height="38.45"/>
+  </a>
+</p>
 
 ## 🛠 Deployment Methods
 
