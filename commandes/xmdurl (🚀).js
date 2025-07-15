@@ -35,7 +35,7 @@ async function convertToMp3(inputPath, outputPath) {
     });
 }
 
-zokou({ nomCom: "url", categorie: "General", reaction: "💗" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "url", categorie: "General", reaction: "🖇️" }, async (dest, zk, commandeOptions) => {
     const { ms, msgRepondu, repondre } = commandeOptions;
 
     if (!msgRepondu) {
@@ -45,12 +45,12 @@ zokou({ nomCom: "url", categorie: "General", reaction: "💗" }, async (dest, zk
                 forwardingScore: 9999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363288304618280@newsletter",
+                    newsletterJid: "120363351653122969@newsletter",
                     serverMessageId: "",
                 },
                 externalAdReply: {
                     title: "Nexus URL Generator",
-                    body: "nexus Bot by PK-DRILLER",
+                    body: "Charles xmd Bot by charles",
                     thumbnailUrl: conf.LOGO,
                     mediaType: 1,
                     mediaUrl: conf.URL,
@@ -76,12 +76,12 @@ zokou({ nomCom: "url", categorie: "General", reaction: "💗" }, async (dest, zk
                         forwardingScore: 9999,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: "120363217992979508@newsletter",
+                            newsletterJid: "120363351653122969@newsletter",
                             serverMessageId: "",
                         },
                         externalAdReply: {
-                            title: "Nexus URL Generator",
-                            body: "nexus Bot by PK-DRILLER",
+                            title: "charles URL Generator",
+                            body: "charles xmd Bot by charles",
                             thumbnailUrl: conf.LOGO,
                             mediaType: 1,
                             mediaUrl: conf.URL,
@@ -114,12 +114,12 @@ zokou({ nomCom: "url", categorie: "General", reaction: "💗" }, async (dest, zk
                     forwardingScore: 9999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: "120363288304618280@newsletter",
+                        newsletterJid: "120363351653122969@newsletter",
                         serverMessageId: "",
                     },
                     externalAdReply: {
-                        title: "Nexus URL Generator",
-                        body: "nexus Bot by PK-DRILLER",
+                        title: "Charles xmd URL Generator",
+                        body: "Charles xmd Bot by charles",
                         thumbnailUrl: conf.LOGO,
                         mediaType: 1,
                         mediaUrl: conf.URL,
@@ -137,17 +137,17 @@ zokou({ nomCom: "url", categorie: "General", reaction: "💗" }, async (dest, zk
         fs.unlinkSync(mediaPath);
 
         await zk.sendMessage(dest, {
-            text: `Nexus url: ${catboxUrl}`,
+            text: `Charles xmd url: ${catboxUrl}`,
             contextInfo: {
                 forwardingScore: 9999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363288304618280@newsletter",
+                    newsletterJid: "120363351653122969@newsletter",
                     serverMessageId: "",
                 },
                 externalAdReply: {
                     title: "Click to open URL",
-                    body: "Uploaded via Nexus Bot",
+                    body: "Uploaded via Charles xmd Bot",
                     thumbnailUrl: conf.LOGO,
                     mediaType: 1,
                     mediaUrl: conf.URL,
@@ -167,12 +167,12 @@ zokou({ nomCom: "url", categorie: "General", reaction: "💗" }, async (dest, zk
                 forwardingScore: 9999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363288304618280@newsletter",
+                    newsletterJid: "120363351653122969@newsletter",
                     serverMessageId: "",
                 },
                 externalAdReply: {
-                    title: "Nexus URL Generator",
-                    body: "nexus Bot by PK-DRILLER",
+                    title: "Charles URL Generator",
+                    body: "Charles xmd Bot by charles",
                     thumbnailUrl: conf.LOGO,
                     mediaType: 1,
                     mediaUrl: conf.URL,
