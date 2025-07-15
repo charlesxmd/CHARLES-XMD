@@ -42,7 +42,7 @@ zokou({
   } = _0x20339c;
   const _0x5754a8 = await fetch("https://nekos.life/api/v2/fact");
   const _0x21e127 = await _0x5754a8.json();
-  _0x12e23a(" *NEXUS-AI FACT MESSAGE* \n*💠* " + _0x21e127.fact + "\n\n\n\n\n*©Pkdriller*\n\n╔═════◇\n║◇ *NEXUS-AI*\n╚════════════════════>  ");
+  _0x12e23a(" *CHARLES XMD FACT MESSAGE* \n*💠* " + _0x21e127.fact + "\n\n\n\n\n*©Charles xmd*\n\n╔═════◇\n║◇ *CHARLES XMD*\n╚════════════════════>  ");
 });
 zokou({
   'nomCom': "quote",
@@ -56,7 +56,7 @@ zokou({
   } = _0x53dc51;
   const _0x2784cf = await fetch('https://favqs.com/api/qotd');
   const _0x1f25fb = await _0x2784cf.json();
-  const _0x2b238b = "\n*NEXUS-AI QUOTE MESSAGE*\n◇ _" + _0x1f25fb.quote.body + "_\n\n\n◇ *AUTHOR:* " + _0x1f25fb.quote.author + "\n\n\n\n\n◇ *©pkdriller**\n\n\n╔═════◇\n║◇ *NEXUS-AI*\n╚════════════════════> ";
+  const _0x2b238b = "\n*CHARLES XMD QUOTE MESSAGE*\n◇ _" + _0x1f25fb.quote.body + "_\n\n\n◇ *AUTHOR:* " + _0x1f25fb.quote.author + "\n\n\n\n\n◇ *©Charles**\n\n\n╔═════◇\n║◇ *CHARLES XMD*\n╚════════════════════> ";
   _0x3bef2d(_0x2b238b);
 });
 zokou({
@@ -84,7 +84,7 @@ zokou({
   }
 });
 zokou({
-  'nomCom': "lyrics1",
+  'nomCom': "lyrics",
   'reaction': '🧾',
   'categorie': "Search"
 }, async (_0x16b585, _0x24921b, _0x5047e1) => {
