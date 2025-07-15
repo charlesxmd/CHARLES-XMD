@@ -5,25 +5,51 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
   let { ms } = commandeOptions;
 
   try {
+    const caption = `╭───❖「 *CHARLES-XMD BOT REPO* 」❖────⊷
+│ 🧠 *GitHub:* https://github.com/charlesxmd/CHARLES-XMD
+│ ⭐ *Stars:* 54    🍴 *Forks:* 18
+│ 📦 *Base:* Zokou Multi-Device
+│ 👨‍💻 *Dev:* Charles XMD 🇰🇪
+╰─────────────────────────────⬍
+
+🚀 *Want to deploy it yourself?*
+▸ Heroku: https://heroku.com
+▸ Render: https://render.com
+▸ Railway: https://railway.app
+▸ Panel: use Node.js panel or cpanel with pm2
+
+🌟 Fork the repo, edit config and start building your own WhatsApp bot!`;
+
     await zk.sendMessage(dest, {
-      text: `🚀 *CHARLES-XMD GitHub Repository*\n\n🔗 *Link:* https://github.com/charlesxmd/CHARLES-XMD\n\nThis is the official source code for the CHARLES-XMD WhatsApp bot. You’re welcome to explore, use, or contribute to it.\n\n🛠️ *Developer:* Charles XMD\n📦 *Bot Framework:* Zokou`,
+      text: caption,
       contextInfo: {
         forwardingScore: 999,
         isForwarded: true,
-        forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363351653122969@newsletter',
-          newsletterName: 'CHARLES XMD',
-          serverMessageId: 200
-        },
         externalAdReply: {
-          title: "Official CHARLES-XMD GitHub Repo",
-          body: "Tap here to open the source code",
-          thumbnailUrl: conf.URL, // Use your bot thumbnail here
-          sourceUrl: "https://github.com/charlesxmd/CHARLES-XMD",
-          mediaType: 1
+          title: "CHARLES-XMD • Public WhatsApp Bot",
+          body: "Click to view the GitHub repo",
+          thumbnailUrl: conf.URL || "https://files.catbox.moe/jlovlp.jpg", // fallback thumbnail
+          mediaType: 1,
+          renderLargerThumbnail: true,
+          showAdAttribution: true,
+          sourceUrl: "https://github.com/charlesxmd/CHARLES-XMD"
         }
       }
-    }, { quoted: ms });
+    }, {
+      quoted: {
+        key: {
+          fromMe: false,
+          participant: '0@s.whatsapp.net',
+          remoteJid: 'status@broadcast'
+        },
+        message: {
+          contactMessage: {
+            displayName: "Charles XMD • Verified",
+            vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:Charles XMD\nORG:Official Bot Developer;\nTEL;type=CELL;type=VOICE;waid=254700000000:+254 700 000000\nEND:VCARD`
+          }
+        }
+      }
+    });
 
   } catch (e) {
     console.error("❌ Repo Command Error:", e);
