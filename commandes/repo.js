@@ -28,7 +28,7 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
         externalAdReply: {
           title: "CHARLES-XMD • Public WhatsApp Bot",
           body: "Click to view the GitHub repo",
-          thumbnailUrl: conf.URL || "https://files.catbox.moe/jlovlp.jpg", // fallback thumbnail
+          thumbnailUrl: conf.URL || "https://files.catbox.moe/jv5s3i.jpg", // fallback thumbnail
           mediaType: 1,
           renderLargerThumbnail: true,
           showAdAttribution: true,
