@@ -16,7 +16,7 @@ zokou({ nomCom: "time", categorie: "Utility" }, async (dest, zk, commandeOptions
             audio: { url: AUDIO_URL },
             mimetype: 'audio/mp4',
             ptt: true,
-            text: `⏰ Current Time: ${time}\n📅 Date: ${date}\n🕰️ (${conf.TZ} timezone)`,
+            text: `⏰ Current Time: ${time}\n📅 Date: ${date}\n🕰️ (${conf.TZ}Africa)`,
             contextInfo: {
                 forwardingScore: 999,
                 isForwarded: true,
