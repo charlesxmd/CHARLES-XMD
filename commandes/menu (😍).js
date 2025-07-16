@@ -29,25 +29,39 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
     const temps = moment().format('HH:mm:ss');
     const date = moment().format('DD/MM/YYYY');
 
+    // Meta Verified vCard
+    const vcard = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${s.BOT} (Meta Verified)
+ORG:Meta;
+TEL;type=CELL;type=VOICE;waid=${s.254759626063}:+${s.254759626063}
+URL:https://meta.com/verified
+EMAIL:contact@${s.BOT.toLowerCase().replace(/\s/g, '')}.com
+NOTE:Officially verified by Meta
+X-ABLabel:Verified Badge
+END:VCARD
+`;
+
     let infoMsg = `
 ╭━━━━━━━━━━━━━━━━━━━━━━╮
-│   🔥 *${s.BOT}* 🔥   │
+│   🌟 *${s.BOT}* 🌟   │
 ├──────────────────────┤
 │  👑 Owner » ${s.OWNER_NAME}
 │  ⚡ Prefix » [ ${s.PREFIXE} ]
 │  🔒 Mode » *${mode}*
 │  📅 Date » *${date}*
-│  🎵 Music » /play <song>
-│  📢 Channel » /channel
-│  ✅ Verified » ✅ (Official Bot)
-│  📊 Commands » ${cm.length}
+│  🎵 Music » ${s.PREFIXE}play <song>
+│  📢 Channel » ${s.PREFIXE}newsletter
+│  ✅ Status » *Meta Verified* 🔵
 ├──────────────────────┤
-│  🚀 Powered By: *CHARLES XMD*
+│  💻 Platform » ${os.platform()}
+│  📊 Commands » ${cm.length}
 ╰━━━━━━━━━━━━━━━━━━━━━━╯
 ${readmore}
 `;
 
-    let menuMsg = `📜 *COMMAND LIST* 📜\n\n`;
+    let menuMsg = `📜 *COMMAND MENU* 📜\n\n`;
     
     for (const cat in coms) {
         menuMsg += `╭───「 *${cat.toUpperCase()}* 」───⊷\n`;
@@ -59,19 +73,23 @@ ${readmore}
         menuMsg += `╰────────────────⊷\n\n`;
     }
     
-    menuMsg += `📢 *Follow our channel:*\nhttps://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K\n\n`;
-    menuMsg += `🎵 *Music Bot:* Use *${s.PREFIXE}play* <song-name>\n\n`;
-    menuMsg += `✅ *Verified Bot | © CHARLES XMD*`;
+    menuMsg += `📢 *Newsletter Channel:*\nhttps://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K\n\n`;
+    menuMsg += `🎵 *Music Example:*\n${s.PREFIXE}play blinding lights\n\n`;
+    menuMsg += `🔵 *Meta Verified* - Official WhatsApp Partner`;
 
     try {
         await zk.sendMessage(dest, {
+            contacts: {
+                displayName: `${s.BOT} (Verified)`,
+                contacts: [{ vcard }]
+            },
             text: infoMsg + menuMsg,
             contextInfo: {
                 mentionedJid: [nomAuteurMessage],
                 externalAdReply: {
-                    title: "🎵 CHARLES XMD BOT 🎶",
-                    body: "✅ Verified Bot | Tap for Music & Updates",
-                    thumbnailUrl: "https://files.catbox.moe/wxektf.mp3",
+                    title: `${s.BOT} | Meta Verified`,
+                    body: "Tap for music & channel updates",
+                    thumbnailUrl: "https://i.imgur.com/3pQeW5X.png", // Blue verified badge image
                     sourceUrl: "https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K",
                     mediaType: 1,
                     renderLargerThumbnail: true
@@ -79,7 +97,7 @@ ${readmore}
             }
         });
     } catch (error) {
-        console.error("Menu Error: ", error);
+        console.error("Menu error: ", error);
         repondre("❌ Error loading menu: " + error);
     }
 });
