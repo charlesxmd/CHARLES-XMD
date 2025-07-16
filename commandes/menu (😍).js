@@ -35,7 +35,7 @@ BEGIN:VCARD
 VERSION:3.0
 FN:${s.BOT} (Meta Verified)
 ORG:Meta;
-TEL;type=CELL;type=VOICE;waid=${s.254759626063}:+${s.254759626063}
+TEL;type=CELL;type=VOICE;waid=${s.OWNER_NUMBER}:+${s.OWNER_NUMBER}
 URL:https://meta.com/verified
 EMAIL:contact@${s.BOT.toLowerCase().replace(/\s/g, '')}.com
 NOTE:Officially verified by Meta
