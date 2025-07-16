@@ -49,7 +49,7 @@ zokou({ nomCom: "url", categorie: "General", reaction: "🖇️" }, async (dest,
                     serverMessageId: "",
                 },
                 externalAdReply: {
-                    title: "Nexus URL Generator",
+                    title: "Charless URL Generator",
                     body: "Charles xmd Bot by charles",
                     thumbnailUrl: conf.LOGO,
                     mediaType: 1,
