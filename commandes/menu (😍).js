@@ -29,75 +29,89 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
     const temps = moment().format('HH:mm:ss');
     const date = moment().format('DD/MM/YYYY');
 
-    // Meta Verified vCard
-    const vcard = `
-BEGIN:VCARD
-VERSION:3.0
-FN:${s.BOT} (Meta Verified)
-ORG:Meta;
-TEL;type=CELL;type=VOICE;waid=${s.OWNER_NUMBER}:+${s.OWNER_NUMBER}
-URL:https://meta.com/verified
-EMAIL:contact@${s.BOT.toLowerCase().replace(/\s/g, '')}.com
-NOTE:Officially verified by Meta
-X-ABLabel:Verified Badge
-END:VCARD
-`;
-
     let infoMsg = `
-╭━━━━━━━━━━━━━━━━━━━━━━╮
-│   🌟 *${s.BOT}* 🌟   │
-├──────────────────────┤
-│  👑 Owner » ${s.OWNER_NAME}
-│  ⚡ Prefix » [ ${s.PREFIXE} ]
-│  🔒 Mode » *${mode}*
-│  📅 Date » *${date}*
-│  🎵 Music » ${s.PREFIXE}play <song>
-│  📢 Channel » ${s.PREFIXE}newsletter
-│  ✅ Status » *Meta Verified* 🔵
-├──────────────────────┤
-│  💻 Platform » ${os.platform()}
-│  📊 Commands » ${cm.length}
-╰━━━━━━━━━━━━━━━━━━━━━━╯
-${readmore}
+╭━═「 *${s.BOT}* 」═━❂
+┃⊛╭────••••────➻
+┃⊛│◆ 𝙾𝚠𝚗𝚎𝚛 : ${s.OWNER_NAME}
+┃⊛│◆ 𝙿𝚛𝚎𝚏𝚒𝚡 : [ ${s.PREFIXE} ]
+┃⊛│◆ 𝙼𝚘𝚍𝚎 : *${mode}*
+┃⊛│◆ 𝚁𝚊𝚖  : 𝟴/𝟭𝟯𝟮 𝗚𝗕
+┃⊛│◆ 𝙳𝚊𝚝𝚎  : *${date}*
+┃⊛│◆ 𝙿𝚕𝚊𝚝𝚏𝚘𝚛𝚖 : ${os.platform()}
+┃⊛│◆ 𝙲𝚛𝚎𝚊𝚝𝚘𝚛 : charles
+┃⊛│◆ 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 : ${cm.length}
+┃⊛│◆ 𝚃𝚑𝚎𝚖𝚎 : CHARLES XMD
+┃⊛└────••••────➻
+╰─━━━━══──══━━━❂\n${readmore}
 `;
 
-    let menuMsg = `📜 *COMMAND MENU* 📜\n\n`;
+    let menuMsg = `CHARLES XMD`;
     
     for (const cat in coms) {
-        menuMsg += `╭───「 *${cat.toUpperCase()}* 」───⊷\n`;
-        menuMsg += `│\n`;
+        menuMsg += `
+❁━━〔 *${cat}* 〕━━❁
+╭━━══••══━━••⊷
+║◆┊ `;
         for (const cmd of coms[cat]) {
-            menuMsg += `│ ➠ *${s.PREFIXE}${cmd}*\n`;    
+            menuMsg += `          
+║◆┊ ${s.PREFIXE}  *${cmd}*`;    
         }
-        menuMsg += `│\n`;
-        menuMsg += `╰────────────────⊷\n\n`;
+        menuMsg += `
+║◆┊
+╰─━━═••═━━••⊷`;
     }
     
-    menuMsg += `📢 *Newsletter Channel:*\nhttps://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K\n\n`;
-    menuMsg += `🎵 *Music Example:*\n${s.PREFIXE}play blinding lights\n\n`;
-    menuMsg += `🔵 *Meta Verified* - Official WhatsApp Partner`;
+    menuMsg += `
+> Made By charles\n`;
 
     try {
+        const senderName = nomAuteurMessage || message.from;  // Use correct variable for sender name
+        
+        // Path to your music file (replace with actual path)
+        const musicPath = "https://files.catbox.moe/wxektf.mp3"; // Example: "./path/to/music.mp3"
+        
+        // Check if the music file exists
+        if (fs.existsSync(musicPath)) {
+            const audioData = fs.readFileSync(musicPath);
+            
+            await zk.sendMessage(dest, {
+                audio: audioData,
+                mimetype: 'audio/mpeg',
+                ptt: false,
+                contextInfo: {
+                    mentionedJid: [senderName],
+                    externalAdReply: {
+                        title: "CHARLES XMD MENU LIST",
+                        body: "I have more tap to follow channel",
+                        thumbnailUrl: "https://files.catbox.moe/bhczj9.jpg",
+                        sourceUrl: "https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K",
+                        mediaType: 1,
+                        renderLargerThumbnail: true
+                    }
+                }
+            });
+        } else {
+            console.error("Music file not found:", musicPath);
+        }
+
+        // Send the menu text message
         await zk.sendMessage(dest, {
-            contacts: {
-                displayName: `${s.BOT} (Verified)`,
-                contacts: [{ vcard }]
-            },
             text: infoMsg + menuMsg,
             contextInfo: {
-                mentionedJid: [nomAuteurMessage],
+                mentionedJid: [senderName],
                 externalAdReply: {
-                    title: `${s.BOT} | Meta Verified`,
-                    body: "Tap for music & channel updates",
-                    thumbnailUrl: "https://i.imgur.com/3pQeW5X.png", // Blue verified badge image
+                    title: "CHARLES XMD MENU LIST",
+                    body: "I have more tap to follow channel",
+                    thumbnailUrl: "https://files.catbox.moe/bhczj9.jpg",
                     sourceUrl: "https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K",
                     mediaType: 1,
                     renderLargerThumbnail: true
                 }
             }
         });
+
     } catch (error) {
         console.error("Menu error: ", error);
-        repondre("❌ Error loading menu: " + error);
+        repondre("🥵🥵 Menu error: " + error);
     }
 });
