@@ -30,49 +30,47 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
     const date = moment().format('DD/MM/YYYY');
 
     let infoMsg = `
-╭━═「 *${s.BOT}* 」═━❂
-┃⊛╭────••••────➻
-┃⊛│◆ 𝙾𝚠𝚗𝚎𝚛 : ${s.OWNER_NAME}
-┃⊛│◆ 𝙿𝚛𝚎𝚏𝚒𝚡 : [ ${s.PREFIXE} ]
-┃⊛│◆ 𝙼𝚘𝚍𝚎 : *${mode}*
-┃⊛│◆ 𝚁𝚊𝚖  : 𝟴/𝟭𝟯𝟮 𝗚𝗕
-┃⊛│◆ 𝙳𝚊𝚝𝚎  : *${date}*
-┃⊛│◆ 𝙿𝚕𝚊𝚝𝚏𝚘𝚛𝚖 : ${os.platform()}
-┃⊛│◆ 𝙲𝚛𝚎𝚊𝚝𝚘𝚛 : charles
-┃⊛│◆ 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 : ${cm.length}
-┃⊛│◆ 𝚃𝚑𝚎𝚖𝚎 : CHARLES XMD
-┃⊛└────••••────➻
-╰─━━━━══──══━━━❂\n${readmore}
+╭━━━━━━━━━━━━━━━━━━━━━━╮
+│   🔥 *${s.BOT}* 🔥   │
+├──────────────────────┤
+│  👑 Owner » ${s.OWNER_NAME}
+│  ⚡ Prefix » [ ${s.PREFIXE} ]
+│  🔒 Mode » *${mode}*
+│  📅 Date » *${date}*
+│  🎵 Music » /play <song>
+│  📢 Channel » /channel
+│  ✅ Verified » ✅ (Official Bot)
+│  📊 Commands » ${cm.length}
+├──────────────────────┤
+│  🚀 Powered By: *CHARLES XMD*
+╰━━━━━━━━━━━━━━━━━━━━━━╯
+${readmore}
 `;
 
-    let menuMsg = `CHARLES XMD`;
+    let menuMsg = `📜 *COMMAND LIST* 📜\n\n`;
     
     for (const cat in coms) {
-        menuMsg += `
-❁━━〔 *${cat}* 〕━━❁
-╭━━══••══━━••⊷
-║◆┊ `;
+        menuMsg += `╭───「 *${cat.toUpperCase()}* 」───⊷\n`;
+        menuMsg += `│\n`;
         for (const cmd of coms[cat]) {
-            menuMsg += `          
-║◆┊ ${s.PREFIXE}  *${cmd}*`;    
+            menuMsg += `│ ➠ *${s.PREFIXE}${cmd}*\n`;    
         }
-        menuMsg += `
-║◆┊
-╰─━━═••═━━••⊷`;
+        menuMsg += `│\n`;
+        menuMsg += `╰────────────────⊷\n\n`;
     }
     
-    menuMsg += `
-> Made By charles\n`;
+    menuMsg += `📢 *Follow our channel:*\nhttps://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K\n\n`;
+    menuMsg += `🎵 *Music Bot:* Use *${s.PREFIXE}play* <song-name>\n\n`;
+    menuMsg += `✅ *Verified Bot | © CHARLES XMD*`;
 
     try {
-        const senderName = nomAuteurMessage || message.from;  // Use correct variable for sender name
         await zk.sendMessage(dest, {
             text: infoMsg + menuMsg,
             contextInfo: {
-                mentionedJid: [senderName],
+                mentionedJid: [nomAuteurMessage],
                 externalAdReply: {
-                    title: "CHARLES XMD MENU LIST",
-                    body: "I have more tap to follow channel",
+                    title: "🎵 CHARLES XMD BOT 🎶",
+                    body: "✅ Verified Bot | Tap for Music & Updates",
                     thumbnailUrl: "https://files.catbox.moe/bhczj9.jpg",
                     sourceUrl: "https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K",
                     mediaType: 1,
@@ -81,9 +79,7 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
             }
         });
     } catch (error) {
-        console.error("Menu error: ", error);
-        repondre("🥵🥵 Menu error: " + error);
+        console.error("Menu Error: ", error);
+        repondre("❌ Error loading menu: " + error);
     }
 });
-
-          
