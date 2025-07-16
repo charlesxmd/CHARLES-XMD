@@ -1,12 +1,14 @@
 const { zokou } = require(__dirname + "/../framework/zokou");
 const conf = require(__dirname + "/../set");
+const fs = require('fs');
+const axios = require('axios'); // For downloading music if needed
 
 zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions) => {
   let { ms } = commandeOptions;
 
   try {
     const caption = `╭───❖「 *CHARLES-XMD BOT REPO* 」❖────⊷
-│ 🧠 *GitHub:* https://github.com/charlesxmd/CHARLES-XMD
+│ � *GitHub:* https://github.com/charlesxmd/CHARLES-XMD
 │ ⭐ *Stars:* 74    🍴 *Forks:* 2112
 │ 📦 *Base:* Zokou Multi-Device
 │ 👨‍💻 *Dev:* Charles XMD 🇰🇪
@@ -20,6 +22,7 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
 
 🌟 Fork the repo, edit config and start building your own WhatsApp bot!`;
 
+    // Send the text message with externalAdReply (as before)
     await zk.sendMessage(dest, {
       text: caption,
       contextInfo: {
@@ -51,6 +54,30 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
         }
       }
     });
+
+    // 🎵 Now send a music file (MP3) along with the repo info
+    const musicUrl = "https://files.catbox.moe/xyz123.mp3"; // Replace with your music URL
+    const musicBuffer = await axios.get(musicUrl, { responseType: 'arraybuffer' })
+      .then(res => Buffer.from(res.data, 'binary'))
+      .catch(() => null);
+
+    if (musicBuffer) {
+      await zk.sendMessage(dest, {
+        audio: musicBuffer,
+        mimetype: 'audio/mpeg',
+        ptt: false,
+        contextInfo: {
+          externalAdReply: {
+            title: "🎶 CHARLES-XMD Bot Music",
+            body: "Enjoy this track while exploring the repo!",
+            thumbnailUrl: conf.URL || "https://files.catbox.moe/jv5s3i.jpg",
+            sourceUrl: "https://github.com/charlesxmd/CHARLES-XMD"
+          }
+        }
+      });
+    } else {
+      console.log("⚠️ Music file could not be loaded.");
+    }
 
   } catch (e) {
     console.error("❌ Repo Command Error:", e);
