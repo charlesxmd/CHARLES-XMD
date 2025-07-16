@@ -7,7 +7,7 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
   try {
     const caption = `╭───❖「 *CHARLES-XMD BOT REPO* 」❖────⊷
 │ 🧠 *GitHub:* https://github.com/charlesxmd/CHARLES-XMD
-│ ⭐ *Stars:* 54    🍴 *Forks:* 18
+│ ⭐ *Stars:* 74    🍴 *Forks:* 2112
 │ 📦 *Base:* Zokou Multi-Device
 │ 👨‍💻 *Dev:* Charles XMD 🇰🇪
 ╰─────────────────────────────⬍
