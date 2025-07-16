@@ -28,7 +28,7 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
       contextInfo: {
         forwardingScore: 999,
         isForwarded: true,
-        mentionedJid: ['120363351653122969@newsletter'], // Replace with your channel JID
+        newsletterJid: ['120363351653122969@newsletter'], // Replace with your channel JID
         externalAdReply: {
           title: "CHARLES-XMD • Public WhatsApp Bot",
           body: "Click to view the GitHub repo",
@@ -49,7 +49,7 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
         message: {
           contactMessage: {
             displayName: "Charles XMD • Verified",
-            vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:Charles XMD\nORG:;\nTEL;type=CELL;type=VOICE;waid=254700000000:+254 700 000000\nEND:VCARD`
+            vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:Charles XMD\nORG:;\nTEL;type=CELL;type=VOICE;waid=254759626063:+254759626063\nEND:VCARD`
           }
         }
       }
