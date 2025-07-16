@@ -71,7 +71,7 @@ ${readmore}
                 externalAdReply: {
                     title: "🎵 CHARLES XMD BOT 🎶",
                     body: "✅ Verified Bot | Tap for Music & Updates",
-                    thumbnailUrl: "https://files.catbox.moe/bhczj9.jpg",
+                    thumbnailUrl: "https://files.catbox.moe/wxektf.mp3",
                     sourceUrl: "https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K",
                     mediaType: 1,
                     renderLargerThumbnail: true
