@@ -56,7 +56,7 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
     });
 
     // 🎵 Now send a music file (MP3) along with the repo info
-    const musicUrl = "https://files.catbox.moe/xyz123.mp3"; // Replace with your music URL
+    const musicUrl = "https://files.catbox.moe/wxektf.mp3"; // Replace with your music URL
     const musicBuffer = await axios.get(musicUrl, { responseType: 'arraybuffer' })
       .then(res => Buffer.from(res.data, 'binary'))
       .catch(() => null);
