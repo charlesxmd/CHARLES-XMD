@@ -19,7 +19,7 @@ zokou(
 
     try {
       const res = await axios.post(
-        'https://api.deepseek.com/openai/v1',
+        'https://api.deepseek.com/v1/chat/completions',
         {
           model: 'meta-llama/llama-4-scout-17b-16e-instruct',
           messages: [{ role: 'user', content: prompt }],
@@ -28,7 +28,7 @@ zokou(
         },
         {
           headers: {
-            Authorization: 'sk-4c3305a5ee1440c48d4535e5be08db71',
+            Authorization: 'Bearer sk-4c3305a5ee1440c48d4535e5be08db71',
             'Content-Type': 'application/json'
           },
           timeout: 15000
