@@ -115,9 +115,9 @@ zokou({ nomCom: "biblelist", categorie: "God-first" }, async (dest, zk, commande
 `;
 
     let menuMsg = `
-> *POWERED BY CHARLESKE XMD*
+> *POWERED BY CHARLES XMD*
 
-> ©ᴘᴏᴡᴇʀᴇᴅ ʙʏ charleske 
+> ©ᴘᴏᴡᴇʀᴇᴅ ʙʏ charles 
 `;
 
     try {
@@ -128,7 +128,7 @@ zokou({ nomCom: "biblelist", categorie: "God-first" }, async (dest, zk, commande
             contextInfo: {
                 mentionedJid: [senderName],
                 externalAdReply: {
-                    title: "*CHARLESKE XMD* HOLY BIBLE LIST",
+                    title: "*CHARLES XMD* HOLY BIBLE LIST",
                     body: "Live with God my friends you don't know your tomorrow",
                     thumbnailUrl: "",
                     sourceUrl: "https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K",
