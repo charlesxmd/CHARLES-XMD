@@ -12,7 +12,7 @@ zokou(
     const { repondre, arg } = commandeOptions;
 
     if (!arg || arg.length === 0) {
-      return repondre("🤖 *Hello!*\nWhat question would you like to ask me am from deepseek my owner is Charles?");
+      return repondre("🤖 *Hello!*\nWhat question would you like to ask me? I'm powered by DeepSeek AI.");
     }
 
     const prompt = arg.join(' ');
@@ -21,14 +21,14 @@ zokou(
       const res = await axios.post(
         'https://api.deepseek.com/v1/chat/completions',
         {
-          model: 'meta-llama/llama-4-scout-17b-16e-instruct',
+          model: 'deepseek-chat', // Updated to DeepSeek's official model
           messages: [{ role: 'user', content: prompt }],
           temperature: 0.7,
           max_tokens: 1000
         },
         {
           headers: {
-            Authorization: 'Bearer sk-4c3305a5ee1440c48d4535e5be08db71',
+            Authorization: 'Bearer sk-4c3305a5ee1440c48d4535e5be08db71', // 🔴 Replace with your actual API key
             'Content-Type': 'application/json'
           },
           timeout: 15000
@@ -43,28 +43,28 @@ zokou(
 
       // Final response in forwarded newsletter format
       await zk.sendMessage(dest, {
-        text: `💡 *Deepseek Response:*\n\n${replyText}`,
+        text: `💡 *DeepSeek Response:*\n\n${replyText}`,
         contextInfo: {
           forwardingScore: 999,
           isForwarded: true,
           externalAdReply: {
-            title: "CHARLES XMD",
-            body: "🤖 powered by Charles",
+            title: "DeepSeek AI",
+            body: "🤖 Powered by DeepSeek API",
             mediaType: 1,
-            thumbnailUrl: "",
-            sourceUrl: "https://api.deepseek.com/v1",
+            thumbnailUrl: "", // Add a thumbnail URL if needed
+            sourceUrl: "https://deepseek.com",
             renderLargerThumbnail: true
           },
           forwardedNewsletterMessageInfo: {
             newsletterJid: "",
-            newsletterName: "CHARLES XMD"
+            newsletterName: "DeepSeek AI"
           }
         }
       });
 
     } catch (error) {
-      console.error("❗ deepseek Error:", error.response?.data || error.message);
-      return repondre("😌 Sorry, Deepseek could not respond. Try again later.");
+      console.error("❗ DeepSeek API Error:", error.response?.data || error.message);
+      return repondre("😌 Sorry, DeepSeek AI could not respond. Try again later.");
     }
   }
 );
