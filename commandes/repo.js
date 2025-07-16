@@ -25,7 +25,7 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
       contextInfo: {
         forwardingScore: 999,
         isForwarded: true,
-        mentionedJid: ['1234567890@s.whatsapp.net'], // Replace with your channel JID
+        mentionedJid: ['120363351653122969@newsletter'], // Replace with your channel JID
         externalAdReply: {
           title: "CHARLES-XMD • Public WhatsApp Bot",
           body: "Click to view the GitHub repo",
