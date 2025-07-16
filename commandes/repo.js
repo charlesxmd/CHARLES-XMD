@@ -45,7 +45,7 @@ zokou({ nomCom: "repo", categorie: "General" }, async (dest, zk, commandeOptions
         message: {
           contactMessage: {
             displayName: "Charles XMD • Verified",
-            vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:Charles XMD\nORG:Official Bot Developer;\nTEL;type=CELL;type=VOICE;waid=254700000000:+254 700 000000\nEND:VCARD`
+            vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:Charles XMD\nORG:;\nTEL;type=CELL;type=VOICE;waid=254700000000:+254 700 000000\nEND:VCARD`
           }
         }
       }
