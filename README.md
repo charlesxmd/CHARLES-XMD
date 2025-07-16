@@ -62,7 +62,7 @@ PAIR CODE
 
 ## 📡 Support the Bot by Joining Our WhatsApp Channel
 
-<a href="https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K"><img title="WHATSAPP CHANNEL" src="https://img.shields.io/badge/Join-WhatsApp%20Channel-brightgreen?style=for-the-badge&logo=whatsapp" width="280" height="38.45"/></a>
+<a href="https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K"><img title="WHATSAPP CHANNEL" src="https://img.shields.io/badge/FOLLOW-WhatsApp%20Channel-brightgreen?style=for-the-badge&logo=whatsapp" width="280" height="38.45"/></a>
 
 ---
 
