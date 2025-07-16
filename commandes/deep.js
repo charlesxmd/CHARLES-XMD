@@ -28,7 +28,7 @@ zokou(
         },
         {
           headers: {
-            Authorization: 'Bearer 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',
+            Authorization: 'sk-4c3305a5ee1440c48d4535e5be08db71',
             'Content-Type': 'application/json'
           },
           timeout: 15000
@@ -52,7 +52,7 @@ zokou(
             body: "🤖 powered by Charles",
             mediaType: 1,
             thumbnailUrl: "",
-            sourceUrl: "https://groq.com",
+            sourceUrl: "https://api.deepseek.com/v1",
             renderLargerThumbnail: true
           },
           forwardedNewsletterMessageInfo: {
@@ -63,8 +63,8 @@ zokou(
       });
 
     } catch (error) {
-      console.error("❌ deepseek Error:", error.response?.data || error.message);
-      return repondre("🚫 Sorry, Deepseek could not respond. Try again later.");
+      console.error("❗ deepseek Error:", error.response?.data || error.message);
+      return repondre("😌 Sorry, Deepseek could not respond. Try again later.");
     }
   }
 );
