@@ -7,6 +7,7 @@ const moment = require("moment-timezone");
 const s = require(__dirname + "/../set");
 const more = String.fromCharCode(8206);
 const readmore = more.repeat(4001);
+const axios = require('axios'); // Required for URL audio support
 
 zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) => {
     let { ms, repondre, prefixe, nomAuteurMessage, mybotpic } = commandeOptions;
@@ -33,7 +34,7 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
 ╭━═「 *${s.BOT}* 」═━❂
 ┃⊛╭────••••────➻
 ┃⊛│◆ 𝙾𝚠𝚗𝚎𝚛 : ${s.OWNER_NAME}
-┃⊛│◆ 𝙿𝚛𝚎𝚏𝚒𝚡 : [ ${s.PREFIXE} ]
+┃⊛│◆ �𝚛𝚎𝚏𝚒𝚡 : [ ${s.PREFIXE} ]
 ┃⊛│◆ 𝙼𝚘𝚍𝚎 : *${mode}*
 ┃⊛│◆ 𝚁𝚊𝚖  : 𝟴/𝟭𝟯𝟮 𝗚𝗕
 ┃⊛│◆ 𝙳𝚊𝚝𝚎  : *${date}*
@@ -65,36 +66,65 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
 > Made By charles\n`;
 
     try {
-        const senderName = nomAuteurMessage || message.from;  // Use correct variable for sender name
+        const senderName = nomAuteurMessage || message.from;
         
-        // Path to your music file (replace with actual path)
-        const musicPath = "https://files.catbox.moe/wxektf.mp3"; // Example: "./path/to/music.mp3"
-        
-        // Check if the music file exists
-        if (fs.existsSync(musicPath)) {
-            const audioData = fs.readFileSync(musicPath);
-            
-            await zk.sendMessage(dest, {
-                audio: audioData,
-                mimetype: 'audio/mpeg',
-                ptt: false,
-                contextInfo: {
-                    mentionedJid: [senderName],
-                    externalAdReply: {
-                        title: "CHARLES XMD MENU LIST",
-                        body: "I have more tap to follow channel",
-                        thumbnailUrl: "https://files.catbox.moe/bhczj9.jpg",
-                        sourceUrl: "https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K",
-                        mediaType: 1,
-                        renderLargerThumbnail: true
+        // Music options - choose either local file or URL
+        const musicOptions = {
+            localPath: "./music/menu-theme.mp3", // Local file path
+            url: "https://files.catbox.moe/wxektf.mp3", // Direct audio URL
+            useURL: true // Set to false to use local file instead
+        };
+
+        // Function to send audio
+        async function sendAudio() {
+            if (musicOptions.useURL) {
+                // Send audio from URL
+                await zk.sendMessage(dest, {
+                    audio: { url: musicOptions.url },
+                    mimetype: 'audio/mpeg',
+                    ptt: false,
+                    contextInfo: {
+                        mentionedJid: [senderName],
+                        externalAdReply: {
+                            title: "CHARLES XMD MUSIC",
+                            body: "Enjoy the theme music!",
+                            thumbnailUrl: "https://files.catbox.moe/bhczj9.jpg",
+                            sourceUrl: musicOptions.url,
+                            mediaType: 1,
+                            renderLargerThumbnail: true
+                        }
                     }
+                });
+            } else {
+                // Send audio from local file
+                if (fs.existsSync(musicOptions.localPath)) {
+                    const audioData = fs.readFileSync(musicOptions.localPath);
+                    await zk.sendMessage(dest, {
+                        audio: audioData,
+                        mimetype: 'audio/mpeg',
+                        ptt: false,
+                        contextInfo: {
+                            mentionedJid: [senderName],
+                            externalAdReply: {
+                                title: "CHARLES XMD MUSIC",
+                                body: "Enjoy the theme music!",
+                                thumbnailUrl: "https://files.catbox.moe/bhczj9.jpg",
+                                sourceUrl: "https://files.catbox.moe/wxektf.mp3",
+                                mediaType: 1,
+                                renderLargerThumbnail: true
+                            }
+                        }
+                    });
+                } else {
+                    console.log("⚠️ Local music file not found");
                 }
-            });
-        } else {
-            console.error("Music file not found:", musicPath);
+            }
         }
 
-        // Send the menu text message
+        // Send music first
+        await sendAudio();
+
+        // Then send menu
         await zk.sendMessage(dest, {
             text: infoMsg + menuMsg,
             contextInfo: {
@@ -112,6 +142,6 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
 
     } catch (error) {
         console.error("Menu error: ", error);
-        repondre("🥵🥵 Menu error: " + error);
+        repondre("⚠️ Menu error: " + error);
     }
 });
