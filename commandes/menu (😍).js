@@ -71,7 +71,7 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
         // Music options - choose either local file or URL
         const musicOptions = {
             localPath: "./music/menu-theme.mp3", // Local file path
-            url: "https://files.catbox.moe/wxektf.mp3", // Direct audio URL
+            url: "https://files.catbox.moe/iq9j1v.mp3", // Direct audio URL
             useURL: true // Set to false to use local file instead
         };
 
@@ -121,10 +121,10 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
             }
         }
 
-        // Send music first
+        // Send menu first 
         await sendAudio();
 
-        // Then send menu
+        // Then send music
         await zk.sendMessage(dest, {
             text: infoMsg + menuMsg,
             contextInfo: {
