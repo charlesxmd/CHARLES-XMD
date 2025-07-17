@@ -7,7 +7,7 @@ const moment = require("moment-timezone");
 const s = require(__dirname + "/../set");
 const more = String.fromCharCode(8206);
 const readmore = more.repeat(4001);
-const axios = require('axios'); // Required for URL audio support
+const axios = require('axios');
 
 zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) => {
     let { ms, repondre, prefixe, nomAuteurMessage, mybotpic } = commandeOptions;
@@ -27,14 +27,13 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
     });
 
     moment.tz.setDefault('Etc/GMT');
-    const temps = moment().format('HH:mm:ss');
     const date = moment().format('DD/MM/YYYY');
 
     let infoMsg = `
 ╭━═「 *${s.BOT}* 」═━❂
 ┃⊛╭────••••────➻
 ┃⊛│◆ 𝙾𝚠𝚗𝚎𝚛 : ${s.OWNER_NAME}
-┃⊛│◆ �𝚛𝚎𝚏𝚒𝚡 : [ ${s.PREFIXE} ]
+┃⊛│◆ 𝙿𝚛𝚎𝚏𝚒𝚡 : [ ${s.PREFIXE} ]
 ┃⊛│◆ 𝙼𝚘𝚍𝚎 : *${mode}*
 ┃⊛│◆ 𝚁𝚊𝚖  : 𝟴/𝟭𝟯𝟮 𝗚𝗕
 ┃⊛│◆ 𝙳𝚊𝚝𝚎  : *${date}*
@@ -62,69 +61,20 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
 ╰─━━═••═━━••⊷`;
     }
     
-    menuMsg += `
-> Made By charles\n`;
+    menuMsg += `\n> Made By charles`;
 
     try {
         const senderName = nomAuteurMessage || message.from;
         
-        // Music options - choose either local file or URL
-        const musicOptions = {
-            localPath: "./music/menu-theme.mp3", // Local file path
-            url: "https://files.catbox.moe/iq9j1v.mp3", // Direct audio URL
-            useURL: true // Set to false to use local file instead
+        // Music configuration
+        const musicConfig = {
+            localPath: "./music/menu-theme.mp3",
+            url: "https://files.catbox.moe/iq9j1v.mp3",
+            useURL: true,
+            delayAfterMenu: 3000 // 3 second delay after menu
         };
 
-        // Function to send audio
-        async function sendAudio() {
-            if (musicOptions.useURL) {
-                // Send audio from URL
-                await zk.sendMessage(dest, {
-                    audio: { url: musicOptions.url },
-                    mimetype: 'audio/mpeg',
-                    ptt: false,
-                    contextInfo: {
-                        mentionedJid: [senderName],
-                        externalAdReply: {
-                            title: "CHARLES XMD MUSIC",
-                            body: "Enjoy the theme music!",
-                            thumbnailUrl: "https://files.catbox.moe/bhczj9.jpg",
-                            sourceUrl: musicOptions.url,
-                            mediaType: 1,
-                            renderLargerThumbnail: true
-                        }
-                    }
-                });
-            } else {
-                // Send audio from local file
-                if (fs.existsSync(musicOptions.localPath)) {
-                    const audioData = fs.readFileSync(musicOptions.localPath);
-                    await zk.sendMessage(dest, {
-                        audio: audioData,
-                        mimetype: 'audio/mpeg',
-                        ptt: false,
-                        contextInfo: {
-                            mentionedJid: [senderName],
-                            externalAdReply: {
-                                title: "CHARLES XMD MUSIC",
-                                body: "Enjoy the theme music!",
-                                thumbnailUrl: "https://files.catbox.moe/bhczj9.jpg",
-                                sourceUrl: "https://files.catbox.moe/wxektf.mp3",
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                        }
-                    });
-                } else {
-                    console.log("⚠️ Local music file not found");
-                }
-            }
-        }
-
-        // Send menu first 
-        await sendAudio();
-
-        // Then send music
+        // Send menu first
         await zk.sendMessage(dest, {
             text: infoMsg + menuMsg,
             contextInfo: {
@@ -140,8 +90,39 @@ zokou({ nomCom: "menu", categorie: "Menu" }, async (dest, zk, commandeOptions) =
             }
         });
 
+        // Function to send music after delay
+        async function sendDelayedMusic() {
+            return new Promise((resolve) => {
+                setTimeout(async () => {
+                    try {
+                        if (musicConfig.useURL) {
+                            await zk.sendMessage(dest, {
+                                audio: { url: musicConfig.url },
+                                mimetype: 'audio/mpeg',
+                                ptt: false
+                            });
+                        } else if (fs.existsSync(musicConfig.localPath)) {
+                            const audioData = fs.readFileSync(musicConfig.localPath);
+                            await zk.sendMessage(dest, {
+                                audio: audioData,
+                                mimetype: 'audio/mpeg',
+                                ptt: false
+                            });
+                        }
+                        resolve();
+                    } catch (e) {
+                        console.error("Music sending error:", e);
+                        resolve();
+                    }
+                }, musicConfig.delayAfterMenu);
+            });
+        }
+
+        // Send music after menu
+        await sendDelayedMusic();
+
     } catch (error) {
-        console.error("Menu error: ", error);
-        repondre("⚠️ Menu error: " + error);
+        console.error("Menu command error:", error);
+        repondre("⚠️ An error occurred while processing menu command");
     }
 });
