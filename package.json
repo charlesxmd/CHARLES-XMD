@@ -20,7 +20,7 @@
   "author": "CHARLES XMD",
   "license": "ISC",
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.5.0",
+    "@whiskeysockets/baileys": "github:Drayyyxd/XD-Baileys",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@google/generative-ai": "^0.3.0",
     "openai": "^4.0.0",
