@@ -2,7 +2,7 @@ const {zokou}=require("../framework/zokou")
 const {getContentType}=require("@whiskeysockets/baileys")
 
 
-zokou({ nomCom: "vv", aliases: ["send", "keep"], categorie: "General" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "vv", aliases: ["send", "keep"], categorie: "Owner" }, async (dest, zk, commandeOptions) => {
   const { repondre, msgRepondu, superUser } = commandeOptions;
 
   if (msgRepondu) {
@@ -22,7 +22,7 @@ zokou({ nomCom: "vv", aliases: ["send", "keep"], categorie: "General" }, async (
       } else if (msgRepondu.stickerMessage) {
         const media = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage);
         const stickerMess = new Sticker(media, {
-          pack: '𝐑𝐀𝐇𝐌𝐀𝐍𝐈-𝐌𝐃',
+          pack: 'CHARLES XMD',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",
