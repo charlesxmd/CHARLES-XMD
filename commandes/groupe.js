@@ -37,7 +37,7 @@ zokou({ nomCom: "tagall", categorie: 'Group', reaction: "📣" }, async (dest, z
   tag +=`
   
 ╭─────────────────━┈⊷ 
-│⛔ *CHARLESKE XMD TAGS*
+│⛔ *CHARLES XMD TAGS🚀*
 ╰─────────────────━┈⊷ \n
 │⭕ *Group* : ${nomGroupe} 
 │⭕ *Hey😀* : *${nomAuteurMessage}* 
@@ -82,7 +82,7 @@ Group link :${lien} \n\n©CHARLESKE XMD 𝐬𝐜𝐢𝐞𝐧𝐜𝐞`
   repondre(mess)
 
 
-});
+});🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️🖲️
 /** *nommer un membre comme admin */
 zokou({ nomCom: "promote", categorie: 'Group', reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
   let { repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifGroupe, auteurMessage, superUser, idBot } = commandeOptions;
