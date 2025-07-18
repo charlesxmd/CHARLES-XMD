@@ -1,7 +1,7 @@
 const { zokou } = require("../framework/zokou");
 
 // 𝐔𝐭𝐢𝐥𝐢𝐭𝐢𝐞𝐻 𝐌𝐨𝐝𝐮𝐥𝐞
-// 𝐏�(o𝐰𝐞𝐫�(e𝐝 𝐛𝐲 𝐱𝐡_𝐜𝐥𝐢𝐧𝐭𝐨𝐧
+// 𝐏�(o𝐰𝐞𝐫�(e𝐝 𝐛𝐲 charles xmd
 
 // Store bot message keys for the current chat
 let botMessages = {};
@@ -49,7 +49,7 @@ zokou(
       await zk.sendMessage(
         dest,
         {
-          text: `𝐒𝐮𝐜𝐜�(e𝐇𝐇𝐟𝐮𝐥𝐥𝐲 𝐜𝐥𝐞𝐚𝐫𝐞𝐝 ${deletedCount} 𝐛𝐨𝐭 𝐦𝐞𝐻𝐇�(a𝐠𝐞${deletedCount === 1 ? "" : "𝐻"}!\n\n𝐏𝐨𝐰�(e𝐫�(e𝐝 𝐛𝐲 𝐱𝐡_𝐜𝐥𝐢𝐧𝐭𝐨𝐧`,
+          text: `𝐒𝐮𝐜𝐜�(e𝐇𝐇𝐟𝐮𝐥𝐥𝐲 𝐜𝐥𝐞𝐚𝐫𝐞𝐝 ${deletedCount} 𝐛𝐨𝐭 𝐦𝐞𝐻𝐇�(a𝐠𝐞${deletedCount === 1 ? "" : "𝐻"}!\n\n𝐏𝐨𝐰�(e𝐫�(e𝐝 𝐛𝐲 Charles xmd`,
         },
         { quoted: ms }
       );
