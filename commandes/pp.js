@@ -57,7 +57,7 @@ zokou(
         else console.log("Temporary file cleaned up.");
       });
 
-      repondre("𝐘𝐨𝐮𝐫 𝐩𝐫𝐨𝐟𝐢𝐥𝐞 𝐩𝐢𝐜𝐭𝐮𝐫𝐞 𝐡𝐚𝐬 𝐛�{e𝐞𝐧 𝐮𝐩𝐝𝐚𝐭𝐞𝐝 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐛𝐲 𝐓𝐨𝐱𝐢𝐜-𝐌𝐃!");
+      repondre("𝐘𝐨𝐮𝐫 𝐩𝐫𝐨𝐟𝐢𝐥𝐞 𝐩𝐢𝐜𝐭𝐮𝐫𝐞 𝐡𝐚𝐬 𝐛�{e𝐞𝐧 𝐮𝐩𝐝𝐚𝐭𝐞𝐝 𝐬𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐛𝐲 CHARLES XMD!");
     } catch (error) {
       console.error("Error updating profile picture:", error);
       repondre(`𝐅𝐚𝐢𝐥�(e𝐝 𝐭𝐨 𝐮𝐩𝐝𝐚𝐭�(e 𝐲𝐨𝐮𝐫 𝐩𝐫𝐨𝐟𝐢𝐥�(e 𝐩𝐢�(c𝐭𝐮𝐫�(e: ${error.message}`);
