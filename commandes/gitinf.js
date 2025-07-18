@@ -29,29 +29,29 @@ zokou({ nomCom: "sc", categorie: "General", reaction: "☣️" }, async (dest, z
     const date = moment().format('DD/MM/YYYY');
 
     let infoMsg = `  
-╔════◇ *𝐓𝐎𝐗𝐈𝐂-𝐌𝐃 𝐈𝐍𝐅𝐎* ◇════╗
+╔════◇ *CHARLES XMD INFO* ◇════╗
 *🌐 𝐆𝐢𝐭𝐇𝐮𝐛 𝐋𝐢𝐧𝐤*:
-https://github.com/xhclintohn/Toxic-MD/fork
+https://github.com/charlesxmd/CHARLES-XMD/fork
 
 *👥 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 𝐆𝐫𝐨𝐮𝐩*:
-https://chat.whatsapp.com/GoXKLVJgTAAC3556FXkfFI
+
 
 ╭───────────────────◇
 │💻 *𝐑𝐀𝐌 𝐔𝐬𝐚𝐠𝐞*: ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-│👑 *𝐎𝐰𝐧𝐞𝐫 1*: @254735342808
-│🌟 *𝐎𝐰𝐧𝐞𝐫 2*: @254799283147
+│👑 *𝐎𝐰𝐧𝐞𝐫 1*: @254759626063
+│🌟 *𝐎𝐰𝐧𝐞𝐫 2*: @254784681663
 ╰───────────────────◇
-╚════◇ *𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐱𝐡_𝐜𝐥𝐢𝐧𝐭𝐨𝐧* ◇════╝
+╚════◇ *𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 CHARLES XMD* ◇════╝
     `;
     
     let menuMsg = `
-╔════◇ *𝐓𝐎𝐗𝐈𝐂-𝐌𝐃 𝐌𝐄𝐍𝐔* ◇════╗
+╔════◇ *CHARLES XMD MENU* ◇════╗
 `;
 
     var lien = mybotpic();
     const mentionedJid = [
-        '254735342808@s.whatsapp.net', 
-        '254799283147@s.whatsapp.net'
+        '254759626063@s.whatsapp.net', 
+        '254784681663@s.whatsapp.net'
     ];
 
     try {
@@ -61,7 +61,7 @@ https://chat.whatsapp.com/GoXKLVJgTAAC3556FXkfFI
                 { 
                     video: { url: lien },
                     caption: infoMsg + menuMsg,
-                    footer: "*𝐓𝐎𝐗𝐈𝐂-𝐌𝐃 - 𝐓𝐡𝐞 𝐔𝐥𝐭𝐢𝐦𝐚𝐭𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 𝐁𝐨𝐭*",
+                    footer: "*CHARLES XMD - 𝐓𝐡𝐞 𝐔𝐥𝐭𝐢𝐦𝐚𝐭𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 𝐁𝐨𝐭*",
                     mentions: mentionedJid,
                     gifPlayback: true 
                 },
@@ -73,7 +73,7 @@ https://chat.whatsapp.com/GoXKLVJgTAAC3556FXkfFI
                 { 
                     image: { url: lien },
                     caption: infoMsg + menuMsg,
-                    footer: "*𝐓𝐎𝐗𝐈𝐂-𝐌𝐃 - 𝐓𝐡𝐞 𝐔𝐥𝐭𝐢𝐦𝐚𝐭𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 𝐁𝐨𝐭*",
+                    footer: "*CHARLES XMD - 𝐓𝐡𝐞 𝐔𝐥𝐭𝐢𝐦𝐚𝐭𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 𝐁𝐨𝐭*",
                     mentions: mentionedJid
                 },
                 { quoted: ms }
