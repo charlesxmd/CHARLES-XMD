@@ -1,7 +1,7 @@
 const { zokou } = require("../framework/zokou");
 const { default: axios } = require('axios');
 
-const TOXIC_MD = "\u{1D413}\u{1D40E}\u{1D417}\u{1D408}\u{1D402}-\u{1D40C}\u{1D403}"; // 𝐓𝐎𝐗𝐈𝐂-𝐌𝐃
+const TOXIC_MD = "\u{1D413}\u{1D40E}\u{1D417}\u{1D408}\u{1D402}-\u{1D40C}\u{1D403}"; // CHARLES XMD
 
 zokou({ nomCom: "spotify", categorie: 'General', reaction: "🎵" }, async (dest, zk, commandeOptions) => {
   const { repondre, arg, ms } = commandeOptions;
