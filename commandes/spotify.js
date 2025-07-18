@@ -1,14 +1,14 @@
 const { zokou } = require("../framework/zokou");
 const { default: axios } = require('axios');
 
-const TOXIC_MD = "\u{1D413}\u{1D40E}\u{1D417}\u{1D408}\u{1D402}-\u{1D40C}\u{1D403}"; // CHARLES XMD
+const CHARLES_XMD = "\u{1D413}\u{1D40E}\u{1D417}\u{1D408}\u{1D402}-\u{1D40C}\u{1D403}"; // CHARLES XMD
 
 zokou({ nomCom: "spotify", categorie: 'General', reaction: "🎵" }, async (dest, zk, commandeOptions) => {
   const { repondre, arg, ms } = commandeOptions;
 
   if (!arg || arg.length === 0) {
     const message = `
-${TOXIC_MD}
+${CHARLES&XMD}
 
 ◈━━━━━━━━━━━━━━━━◈
 │❒ 𝐏𝐥𝐞𝐚𝐬𝐞 𝐩𝐫𝐨𝐯𝐢𝐝𝐞 𝐚 𝐬𝐨𝐧𝐠 𝐧𝐚𝐦𝐞 🚫
@@ -28,7 +28,7 @@ ${TOXIC_MD}
 
     if (!response.data.success || response.data.status !== 200) {
       const errorMessage = `
-${TOXIC_MD}
+${CHARLES_XMD}
 
 ◈━━━━━━━━━━━━━━━━◈
 │❒ 𝐅𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐟𝐞𝐭𝐜𝐡 𝐬𝐨𝐧𝐠 😓
@@ -41,7 +41,7 @@ ${TOXIC_MD}
 
     const track = response.data.result;
     const message = `
-${TOXIC_MD}
+${CHARLES_XMD}
 
 ◈━━━━━━━━━━━━━━━━◈
 │❒ 𝐒𝐩𝐨𝐭𝐢𝐟𝐲 𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨 🎵
@@ -54,7 +54,7 @@ ${TOXIC_MD}
     await zk.sendMessage(dest, { text: message }, { quoted: ms });
   } catch (error) {
     const errorMessage = `
-${TOXIC_MD}
+${CHARLES_XMD}
 
 ◈━━━━━━━━━━━━━━━━◈
 │❒ 𝐄𝐫𝐫𝐨𝐫 𝐟𝐞𝐭𝐜𝐡𝐢𝐧𝐠 𝐬𝐨𝐧𝐠: ${error.message} 😓
