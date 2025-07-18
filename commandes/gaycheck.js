@@ -2,8 +2,8 @@ const { zokou } = require("../framework/zokou");
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━//
 //                   𝐅𝐔𝐍 𝐌𝐎𝐃𝐔𝐋𝐄                     //
-//               𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐓𝐨𝐱𝐢𝐜-𝐌𝐃                //
-//             𝐎𝐰𝐧𝐞𝐫: 𝐱𝐡_𝐜𝐥𝐢𝐧𝐭𝐨𝐧                   //
+//               𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 Charles xmd                 //
+//             𝐎𝐰𝐧𝐞𝐫: Charleske                   //
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━//
 
 // Gay Check Command
@@ -32,7 +32,7 @@ zokou(
       const dey = shibam[Math.floor(Math.random() * shibam.length)];
 
       // Prepare response
-      const gayText = `𝐆𝐚𝐲 𝐂𝐡𝐞𝐜𝐤 𝐎𝐟: @${mentionedUser.split("@")[0]}\n\n𝐑𝐞𝐬𝐮𝐥𝐭: *${dey}%* 🤣\n\n𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐓𝐨𝐱𝐢𝐜-𝐌𝐃\n𝐎𝐰𝐧𝐞𝐫: 𝐱𝐡_𝐜𝐥𝐢𝐧𝐭𝐨𝐧`;
+      const gayText = `𝐆𝐚𝐲 𝐂𝐡𝐞𝐜𝐤 𝐎𝐟: @${mentionedUser.split("@")[0]}\n\n𝐑𝐞𝐬𝐮𝐥𝐭: *${dey}%* 🤣\n\n𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 Charles xmd\n𝐎𝐰𝐧𝐞𝐫: Charleske`;
 
       // Send message with image and mentions
       await zk.sendMessage(
