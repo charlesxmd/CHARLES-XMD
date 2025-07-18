@@ -29,7 +29,7 @@ zokou({
     const { respond, prefix, nomAuteurMessage } = context;
     const commands = require(__dirname + "/../framework/zokou").cm;
 
-    let menu = '𝙱.𝙼.𝙱-𝚇𝙼𝙳 ʟɪsᴛ\n\n';
+    let menu = 'CHARLES XMD\n\n';
     let zokouList = [];
 
     // Loop through all commands to fetch the relevant information (commands, description, and aliases)
@@ -59,10 +59,10 @@ zokou({
         text: menu,
         contextInfo: {
             externalAdReply: {
-                title: "B.M.B-TECH",
-                body: "𝐫𝐞𝐠𝐚𝐫𝐝𝐬 bmb",
-                thumbnailUrl: "https://files.catbox.moe/g2brwg.jpg",
-                sourceUrl: "https://whatsapp.com/channel/0029VawO6hgF6sn7k3SuVU3z",
+                title: "CHARLES XMD",
+                body: "𝐫𝐞𝐠𝐚𝐫𝐝𝐬 charles",
+                thumbnailUrl: "",
+                sourceUrl: "https://whatsapp.com/channel/0029Vao2hgeChq6HJ5bmlZ3K",
                 mediaType: 1,
                 renderLargerThumbnail: true
             }
